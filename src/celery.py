@@ -19,14 +19,14 @@ app.autodiscover_tasks()
 
 # Add this to settings.py
 app.conf.beat_schedule = {
-    'daily-2pm-task': {
-        'task': 'myapp.tasks.daily_message',
-        # 'schedule': crontab(hour=14, minute=54),  # 2 PM UTC
-        'schedule': crontab(),  # 2 PM UTC
-    },
+    # 'daily-2pm-task': {
+    #     'task': 'myapp.tasks.daily_message',
+    #     # 'schedule': crontab(hour=14, minute=54),  # 2 PM UTC
+    #     'schedule': crontab(),  # 2 PM UTC
+    # },
     'count_every_minute': {
         'task': 'myapp.tasks.count_after_1_minute',
         # 'schedule': crontab(hour=14, minute=54),  # 2 PM UTC
-        'schedule': crontab(minute='*'),
+        'schedule': crontab(minute='2'),
     },
 }
