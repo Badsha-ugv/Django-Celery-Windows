@@ -1,6 +1,9 @@
 from celery import shared_task
 from celery.schedules import crontab
 from .models import Counter
+import logging
+
+logger = logging.getLogger(__name__)
 
 @shared_task
 def daily_message():
@@ -11,8 +14,14 @@ def daily_message():
 
 @shared_task
 def count_after_1_minute():
-    print('counting task')
-    counter = Counter.objects.first()
-    counter.count += 1
-    counter.save()
-    print('count ', counter)
+    logger.info("Starting count task")
+    try:
+        counter = Counter.objects.first()  # Fetch the first counter object
+        if counter:
+            counter.count += 1
+            counter.save()
+            logger.info(f"Count updated: {counter.count}")
+        else:
+            logger.warning("No counter found!")
+    except Exception as e:
+        logger.error(f"Error in count_after_1_minute task: {e}")
