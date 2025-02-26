@@ -27,6 +27,6 @@ app.conf.beat_schedule = {
     'count_every_minute': {
         'task': 'myapp.tasks.count_after_1_minute',
         # 'schedule': crontab(hour=14, minute=54),  # 2 PM UTC
-        'schedule': crontab(),  # 2 PM UTC
+        'schedule': crontab(minute='*'),
     },
 }
