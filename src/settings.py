@@ -120,8 +120,9 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CELERY_BROKER_URL = 'redis://localhost:6379/0'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+CELERY_BROKER_URL = 'rediss://red-cuvaq48gph6c73epfm30:EsILLT1XJxDV61FHcImN5RBVhmvUiLEy@oregon-keyvalue.render.com:6379/0?ssl_cert_reqs=CERT_NONE'
+CELERY_RESULT_BACKEND = 'rediss://red-cuvaq48gph6c73epfm30:EsILLT1XJxDV61FHcImN5RBVhmvUiLEy@oregon-keyvalue.render.com:6379/1?ssl_cert_reqs=CERT_NONE'
+
 CELERY_TIMEZONE = 'UTC' 
 
 
